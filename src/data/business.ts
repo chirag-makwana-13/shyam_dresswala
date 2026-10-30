@@ -16,9 +16,7 @@ export const business = {
     { days: "Sunday", time: "10:00 AM – 8:00 PM" },
   ],
   social: {
-    instagram: "https://instagram.com/shyamdresswala",
-    facebook: "https://facebook.com/shyamdresswala",
-    youtube: "https://youtube.com/@shyamdresswala",
+    instagram: "https://www.instagram.com/shyam_dresswala/",
   },
   established: 2019,
   stats: {
