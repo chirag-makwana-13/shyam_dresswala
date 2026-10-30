@@ -4,44 +4,49 @@ import { motion } from "framer-motion";
 import { Phone, MessageCircle, MapPin, Mail, Clock, ExternalLink } from "lucide-react";
 import { business } from "@/data/business";
 import { getWhatsAppUrl, getCallUrl } from "@/lib/whatsapp";
-
-const contactItems = [
-  {
-    Icon: Phone,
-    title: "Call Us",
-    value: business.phone,
-    href: getCallUrl(),
-    cta: "Call Now",
-    external: false,
-  },
-  {
-    Icon: MessageCircle,
-    title: "WhatsApp",
-    value: business.phone,
-    href: getWhatsAppUrl(),
-    cta: "Chat Now",
-    external: true,
-    highlight: true,
-  },
-  {
-    Icon: Mail,
-    title: "Email",
-    value: business.email,
-    href: `mailto:${business.email}`,
-    cta: "Send Email",
-    external: false,
-  },
-  {
-    Icon: MapPin,
-    title: "Visit Store",
-    value: business.address,
-    href: business.mapUrl,
-    cta: "Get Directions",
-    external: true,
-  },
-];
+import { useLang } from "@/i18n/LanguageProvider";
 
 export default function ContactClient() {
+  const { t, lang, tr } = useLang();
+  const contactItems = [
+    {
+      Icon: Phone,
+      title: t.contact.callUs,
+      value: business.phone,
+      href: getCallUrl(),
+      cta: t.common.callNow,
+      external: false,
+      highlight: false,
+    },
+    {
+      Icon: MessageCircle,
+      title: t.contact.whatsapp,
+      value: business.phone,
+      href: getWhatsAppUrl(undefined, undefined, undefined, lang),
+      cta: t.contact.chatNow,
+      external: true,
+      highlight: true,
+    },
+    {
+      Icon: Mail,
+      title: t.contact.email,
+      value: business.email,
+      href: `mailto:${business.email}`,
+      cta: t.contact.sendEmail,
+      external: false,
+      highlight: false,
+    },
+    {
+      Icon: MapPin,
+      title: t.contact.visitStore,
+      value: t.footer.address,
+      href: business.mapUrl,
+      cta: t.contact.getDirections,
+      external: true,
+      highlight: false,
+    },
+  ];
+
   return (
     <div className="pt-24 pb-20 min-h-screen" style={{ backgroundColor: "#fff8f0" }}>
       {/* Header */}
@@ -56,7 +61,7 @@ export default function ContactClient() {
             className="text-xs tracking-[0.25em] uppercase font-semibold mb-3"
             style={{ color: "#d4af37" }}
           >
-            We&apos;d love to hear from you
+            {t.contact.label}
           </motion.p>
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
@@ -65,7 +70,7 @@ export default function ContactClient() {
             className="text-4xl md:text-5xl font-bold mb-4"
             style={{ fontFamily: "var(--font-playfair)", color: "#fff8f0" }}
           >
-            Contact Us
+            {t.contact.title}
           </motion.h1>
           <motion.p
             initial={{ opacity: 0 }}
@@ -74,8 +79,7 @@ export default function ContactClient() {
             className="text-base max-w-lg mx-auto"
             style={{ color: "rgba(255,248,240,0.65)" }}
           >
-            Visit our store, give us a call, or reach out on WhatsApp — we&apos;re here
-            7 days a week to help you find the perfect outfit.
+            {t.contact.subtitle}
           </motion.p>
         </div>
       </div>
@@ -153,7 +157,7 @@ export default function ContactClient() {
                 className="text-xl font-bold"
                 style={{ fontFamily: "var(--font-playfair)", color: "#5b0e2d" }}
               >
-                Working Hours
+                {t.contact.workingHours}
               </h2>
             </div>
 
@@ -165,31 +169,37 @@ export default function ContactClient() {
                   style={{ borderColor: "rgba(212,175,55,0.15)" }}
                 >
                   <span className="font-medium text-sm" style={{ color: "#333" }}>
-                    {h.days}
+                    {tr("hours", h.days)}
                   </span>
                   <span
                     className="text-sm font-semibold px-3 py-1 rounded-full"
                     style={{ backgroundColor: "rgba(91,14,45,0.08)", color: "#5b0e2d" }}
                   >
-                    {h.time}
+                    {tr("hours", h.time)}
                   </span>
                 </div>
               ))}
             </div>
 
-            <div className="mt-8 p-5 rounded-xl" style={{ backgroundColor: "rgba(212,175,55,0.08)" }}>
+            <a
+              href={business.mapUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-8 p-5 rounded-xl block transition-shadow hover:shadow-md"
+              style={{ backgroundColor: "rgba(212,175,55,0.08)" }}
+            >
               <div className="flex gap-3">
                 <MapPin size={18} style={{ color: "#d4af37" }} className="shrink-0 mt-0.5" />
                 <div>
                   <p className="font-semibold text-sm mb-1" style={{ color: "#5b0e2d" }}>
-                    {business.name}
+                    {t.brand.name}
                   </p>
                   <p className="text-sm leading-relaxed" style={{ color: "#666" }}>
-                    {business.address}
+                    {t.brand.location}
                   </p>
                 </div>
               </div>
-            </div>
+            </a>
           </motion.div>
 
           {/* Map */}
@@ -209,7 +219,7 @@ export default function ContactClient() {
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="Shyam Dresswala Location"
+              title={t.contact.mapTitle}
             />
           </motion.div>
         </div>
@@ -227,13 +237,13 @@ export default function ContactClient() {
             className="text-2xl md:text-3xl font-bold mb-3"
             style={{ fontFamily: "var(--font-playfair)", color: "#fff8f0" }}
           >
-            Prefer to Chat?
+            {t.contact.preferChat}
           </h2>
           <p className="text-sm mb-6" style={{ color: "rgba(255,248,240,0.7)" }}>
-            Send us a WhatsApp message for quick assistance, availability checks, or booking.
+            {t.contact.preferChatText}
           </p>
           <motion.a
-            href={getWhatsAppUrl()}
+            href={getWhatsAppUrl(undefined, undefined, undefined, lang)}
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}
@@ -249,7 +259,7 @@ export default function ContactClient() {
             >
               <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
             </svg>
-            WhatsApp Us Now
+            {t.contact.whatsappUs}
           </motion.a>
         </motion.div>
       </div>

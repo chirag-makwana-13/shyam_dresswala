@@ -3,9 +3,11 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
+import { useLang } from "@/i18n/LanguageProvider";
 
 export default function FloatingWhatsApp() {
   const [hovered, setHovered] = useState(false);
+  const { t, lang } = useLang();
 
   return (
     <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-2">
@@ -18,16 +20,16 @@ export default function FloatingWhatsApp() {
             transition={{ duration: 0.2 }}
             className="bg-white text-charcoal text-sm px-4 py-2 rounded-2xl shadow-xl font-medium whitespace-nowrap"
           >
-            Chat with us on WhatsApp!
+            {t.common.chatWithUs}
           </motion.div>
         )}
       </AnimatePresence>
 
       <motion.a
-        href={getWhatsAppUrl()}
+        href={getWhatsAppUrl(undefined, undefined, undefined, lang)}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Chat on WhatsApp"
+        aria-label={t.common.chatWhatsApp}
         onHoverStart={() => setHovered(true)}
         onHoverEnd={() => setHovered(false)}
         initial={{ scale: 0 }}

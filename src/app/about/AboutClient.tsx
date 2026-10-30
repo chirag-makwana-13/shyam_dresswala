@@ -5,24 +5,21 @@ import { Users, Award, Package, Heart, CheckCircle } from "lucide-react";
 import Link from "next/link";
 import { business } from "@/data/business";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
-
-const stats = [
-  { Icon: Award, value: business.stats.experience, label: "Years of Excellence" },
-  { Icon: Users, value: business.stats.customers, label: "Happy Customers" },
-  { Icon: Package, value: business.stats.collection, label: "Outfits Available" },
-  { Icon: Heart, value: business.stats.satisfaction, label: "Satisfaction Rate" },
-];
-
-const values = [
-  "Premium quality fabrics and craftsmanship in every outfit",
-  "Regular dry-cleaning and maintenance between rentals",
-  "Expert staff to assist with selection and fitting",
-  "Wide range of sizes including plus sizes",
-  "Latest seasonal trends updated every season",
-  "Transparent pricing with no hidden charges",
-];
+import { useLang } from "@/i18n/LanguageProvider";
 
 export default function AboutClient() {
+  const { t, lang } = useLang();
+  const stats = [
+    { Icon: Award, value: business.stats.experience, label: t.about.stats.years },
+    { Icon: Users, value: business.stats.customers, label: t.about.stats.customers },
+    { Icon: Package, value: business.stats.collection, label: t.about.stats.outfits },
+    { Icon: Heart, value: business.stats.satisfaction, label: t.about.stats.satisfaction },
+  ];
+  const missionVision = [
+    { ...t.about.mission, icon: "🎯" },
+    { ...t.about.vision, icon: "✨" },
+  ];
+
   return (
     <div className="pt-24 pb-20 min-h-screen" style={{ backgroundColor: "#fff8f0" }}>
       {/* Hero */}
@@ -37,7 +34,7 @@ export default function AboutClient() {
             className="text-xs tracking-[0.25em] uppercase font-semibold mb-4"
             style={{ color: "#d4af37" }}
           >
-            Our Story
+            {t.about.label}
           </motion.p>
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
@@ -46,7 +43,7 @@ export default function AboutClient() {
             className="text-4xl md:text-6xl font-bold mb-6"
             style={{ fontFamily: "var(--font-playfair)", color: "#fff8f0" }}
           >
-            About Shyam Dresswala
+            {t.about.title}
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -55,9 +52,7 @@ export default function AboutClient() {
             className="text-lg leading-relaxed max-w-2xl mx-auto"
             style={{ color: "rgba(255,248,240,0.7)" }}
           >
-            Since 2019, we have been Jamnagar&apos;s most trusted destination
-            for premium rental fashion — helping thousands of families look their
-            absolute best for life&apos;s most special moments.
+            {t.about.hero}
           </motion.p>
         </div>
       </div>
@@ -109,34 +104,18 @@ export default function AboutClient() {
               className="inline-block text-xs font-semibold tracking-[0.25em] uppercase mb-3"
               style={{ color: "#d4af37" }}
             >
-              Est. {business.established}
+              {t.about.est} {business.established}
             </span>
             <h2
               className="text-3xl md:text-4xl font-bold mb-6"
               style={{ fontFamily: "var(--font-playfair)", color: "#5b0e2d" }}
             >
-              Two Decades of Dressing Dreams
+              {t.about.storyTitle}
             </h2>
             <div className="space-y-4 text-base leading-relaxed" style={{ color: "#444" }}>
-              <p>
-                Shyam Dresswala was founded in 2019 with a simple vision: to make
-                premium ethnic and wedding fashion accessible to everyone. We believed
-                that every person deserves to look and feel extraordinary on their most
-                memorable occasions — without the burden of buying expensive outfits they
-                may wear only once.
-              </p>
-              <p>
-                Starting with a small collection of men&apos;s sherwanis in our flagship
-                store in Jamnagar, we have grown to offer over 500+ outfits spanning
-                men&apos;s ethnic wear, women&apos;s bridal and festive collections, and
-                a comprehensive accessories range.
-              </p>
-              <p>
-                Today, Shyam Dresswala is a name trusted by thousands of families across
-                Gujarat for weddings, receptions, festivals, corporate events, and every
-                celebration in between. Our commitment to quality, care, and customer
-                satisfaction has remained unchanged for 7+ years.
-              </p>
+              {t.about.story.map((para) => (
+                <p key={para}>{para}</p>
+              ))}
             </div>
           </motion.div>
 
@@ -152,10 +131,10 @@ export default function AboutClient() {
               className="text-2xl font-bold mb-6"
               style={{ fontFamily: "var(--font-playfair)", color: "#d4af37" }}
             >
-              Our Commitment to Quality
+              {t.about.commitment}
             </h3>
             <ul className="space-y-4">
-              {values.map((value, i) => (
+              {t.about.values.map((value, i) => (
                 <motion.li
                   key={i}
                   initial={{ opacity: 0, x: 20 }}
@@ -186,18 +165,7 @@ export default function AboutClient() {
       >
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {[
-              {
-                title: "Our Mission",
-                icon: "🎯",
-                text: "To provide every customer with access to premium, well-maintained rental fashion at affordable prices — making them look and feel their very best on every special occasion, while saving money and reducing fashion waste.",
-              },
-              {
-                title: "Our Vision",
-                icon: "✨",
-                text: "To become India's most trusted rental fashion destination — where every celebration begins with the perfect outfit. We envision a future where fashion is shared, sustainable, and accessible to all.",
-              },
-            ].map((item, i) => (
+            {missionVision.map((item, i) => (
               <motion.div
                 key={item.title}
                 initial={{ opacity: 0, y: 30 }}
@@ -232,11 +200,10 @@ export default function AboutClient() {
           className="text-3xl font-bold mb-4"
           style={{ fontFamily: "var(--font-playfair)", color: "#5b0e2d" }}
         >
-          Visit Our Store Today
+          {t.about.visitTitle}
         </motion.h2>
         <p className="text-base mb-8" style={{ color: "#666" }}>
-          Experience our collection in person and let our experts help you find the
-          perfect outfit for your occasion.
+          {t.about.visitText}
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link
@@ -244,16 +211,16 @@ export default function AboutClient() {
             className="inline-flex items-center justify-center px-8 py-4 rounded-full font-semibold"
             style={{ backgroundColor: "#5b0e2d", color: "#d4af37" }}
           >
-            Get Directions
+            {t.about.getDirections}
           </Link>
           <a
-            href={getWhatsAppUrl()}
+            href={getWhatsAppUrl(undefined, undefined, undefined, lang)}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center px-8 py-4 rounded-full font-semibold border-2"
             style={{ borderColor: "#5b0e2d", color: "#5b0e2d" }}
           >
-            WhatsApp Enquiry
+            {t.common.whatsappEnquiry}
           </a>
         </div>
       </div>

@@ -6,8 +6,10 @@ import { ArrowRight } from "lucide-react";
 import SectionTitle from "@/components/shared/SectionTitle";
 import ProductCard from "@/components/shared/ProductCard";
 import { featuredProducts } from "@/data/products";
+import { useLang } from "@/i18n/LanguageProvider";
 
 export default function FeaturedCollection() {
+  const { t } = useLang();
   return (
     <section
       className="py-20 px-4 sm:px-6 lg:px-8"
@@ -15,9 +17,9 @@ export default function FeaturedCollection() {
     >
       <div className="max-w-7xl mx-auto">
         <SectionTitle
-          label="Trending"
-          title="Featured Collection"
-          subtitle="Hand-picked premium outfits loved by our customers for weddings, receptions, and celebrations."
+          label={t.featured.label}
+          title={t.featured.title}
+          subtitle={t.featured.subtitle}
         />
 
         <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-6">
@@ -40,7 +42,7 @@ export default function FeaturedCollection() {
               className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold border-2 transition-all cursor-pointer"
               style={{ borderColor: "#5b0e2d", color: "#5b0e2d" }}
             >
-              View All Collections
+              {t.featured.viewAll}
               <ArrowRight size={18} />
             </motion.span>
           </Link>

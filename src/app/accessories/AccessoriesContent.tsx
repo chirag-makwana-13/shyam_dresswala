@@ -4,9 +4,11 @@ import { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
 import ProductCard from "@/components/shared/ProductCard";
+import { useLang } from "@/i18n/LanguageProvider";
 import { products, accessorySubcategories } from "@/data/products";
 
 export default function AccessoriesContent() {
+  const { t, tr } = useLang();
   const searchParams = useSearchParams();
   const initialCat = searchParams.get("cat") || "All";
   const [activeCategory, setActiveCategory] = useState(initialCat);
@@ -38,7 +40,7 @@ export default function AccessoriesContent() {
                 : { backgroundColor: "white", color: "#a88b2a", border: "1px solid rgba(168,139,42,0.3)" }
             }
           >
-            {tab}
+            {tab === "All" ? t.common.all : tr("sub", tab)}
           </motion.button>
         ))}
       </div>
@@ -51,7 +53,7 @@ export default function AccessoriesContent() {
         </div>
       ) : (
         <div className="text-center py-20">
-          <p className="text-lg" style={{ color: "#888" }}>No products found.</p>
+          <p className="text-lg" style={{ color: "#888" }}>{t.common.noProducts}</p>
         </div>
       )}
     </div>

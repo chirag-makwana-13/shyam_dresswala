@@ -4,9 +4,11 @@ import { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
 import ProductCard from "@/components/shared/ProductCard";
+import { useLang } from "@/i18n/LanguageProvider";
 import { products, womenSubcategories } from "@/data/products";
 
 export default function WomenContent() {
+  const { t, tr } = useLang();
   const searchParams = useSearchParams();
   const initialCat = searchParams.get("cat") || "All";
   const [activeCategory, setActiveCategory] = useState(initialCat);
@@ -38,7 +40,7 @@ export default function WomenContent() {
                 : { backgroundColor: "white", color: "#8b1a4a", border: "1px solid rgba(139,26,74,0.2)" }
             }
           >
-            {tab}
+            {tab === "All" ? t.common.all : tr("sub", tab)}
           </motion.button>
         ))}
       </div>
@@ -51,7 +53,7 @@ export default function WomenContent() {
         </div>
       ) : (
         <div className="text-center py-20">
-          <p className="text-lg" style={{ color: "#888" }}>No products found.</p>
+          <p className="text-lg" style={{ color: "#888" }}>{t.common.noProducts}</p>
         </div>
       )}
     </div>

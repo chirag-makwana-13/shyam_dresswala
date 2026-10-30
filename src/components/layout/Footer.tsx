@@ -1,14 +1,17 @@
+"use client";
+
 import Link from "next/link";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { business } from "@/data/business";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
+import { useLang } from "@/i18n/LanguageProvider";
 
 const quickLinks = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "About Us" },
-  { href: "/gallery", label: "Gallery" },
-  { href: "/contact", label: "Contact" },
-];
+  { href: "/", key: "home" },
+  { href: "/about", key: "aboutUs" },
+  { href: "/gallery", key: "gallery" },
+  { href: "/contact", key: "contact" },
+] as const;
 
 const menLinks = [
   { href: "/men?cat=Sherwani", label: "Sherwani" },
@@ -26,6 +29,9 @@ const womenLinks = [
 ];
 
 export default function Footer() {
+  const { t, lang, tr } = useLang();
+  const quickLabel = (k: (typeof quickLinks)[number]["key"]) =>
+    k === "aboutUs" ? t.footer.aboutUs : t.nav[k];
   return (
     <footer style={{ backgroundColor: "#3d0920" }}>
       {/* Main footer */}
@@ -45,16 +51,15 @@ export default function Footer() {
                   className="text-lg font-bold"
                   style={{ fontFamily: "var(--font-playfair)", color: "#fff8f0" }}
                 >
-                  Shyam Dresswala
+                  {t.brand.name}
                 </p>
                 <p className="text-xs" style={{ color: "#d4af37" }}>
-                  Since {business.established}
+                  {t.brand.since} {business.established}
                 </p>
               </div>
             </div>
             <p className="text-sm leading-relaxed mb-6" style={{ color: "rgba(255,248,240,0.65)" }}>
-              {business.tagline}. Premium ethnic and western wear available on
-              rent for weddings, receptions, and all celebrations.
+              {t.brand.footerDesc}
             </p>
             {/* Socials */}
             <div className="flex gap-3">
@@ -105,7 +110,7 @@ export default function Footer() {
           {/* Quick Links */}
           <div>
             <h4 className="text-sm font-semibold tracking-widest uppercase mb-6" style={{ color: "#d4af37" }}>
-              Quick Links
+              {t.footer.quickLinks}
             </h4>
             <ul className="space-y-3">
               {quickLinks.map((l) => (
@@ -115,19 +120,19 @@ export default function Footer() {
                     className="text-sm transition-colors hover:opacity-80"
                     style={{ color: "rgba(255,248,240,0.7)" }}
                   >
-                    {l.label}
+                    {quickLabel(l.key)}
                   </Link>
                 </li>
               ))}
               <li>
                 <a
-                  href={getWhatsAppUrl()}
+                  href={getWhatsAppUrl(undefined, undefined, undefined, lang)}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-sm transition-colors hover:opacity-80"
                   style={{ color: "rgba(255,248,240,0.7)" }}
                 >
-                  WhatsApp Enquiry
+                  {t.common.whatsappEnquiry}
                 </a>
               </li>
             </ul>
@@ -136,12 +141,12 @@ export default function Footer() {
           {/* Collections */}
           <div>
             <h4 className="text-sm font-semibold tracking-widest uppercase mb-6" style={{ color: "#d4af37" }}>
-              Collections
+              {t.footer.collections}
             </h4>
             <div className="grid grid-cols-2 gap-x-4 gap-y-3">
               <div>
                 <p className="text-xs font-semibold mb-2" style={{ color: "rgba(255,248,240,0.4)" }}>
-                  MEN
+                  {t.footer.men}
                 </p>
                 <ul className="space-y-2">
                   {menLinks.map((l) => (
@@ -151,7 +156,7 @@ export default function Footer() {
                         className="text-sm transition-colors hover:opacity-80"
                         style={{ color: "rgba(255,248,240,0.7)" }}
                       >
-                        {l.label}
+                        {tr("sub", l.label)}
                       </Link>
                     </li>
                   ))}
@@ -159,7 +164,7 @@ export default function Footer() {
               </div>
               <div>
                 <p className="text-xs font-semibold mb-2" style={{ color: "rgba(255,248,240,0.4)" }}>
-                  WOMEN
+                  {t.footer.women}
                 </p>
                 <ul className="space-y-2">
                   {womenLinks.map((l) => (
@@ -169,7 +174,7 @@ export default function Footer() {
                         className="text-sm transition-colors hover:opacity-80"
                         style={{ color: "rgba(255,248,240,0.7)" }}
                       >
-                        {l.label}
+                        {tr("sub", l.label)}
                       </Link>
                     </li>
                   ))}
@@ -181,14 +186,20 @@ export default function Footer() {
           {/* Contact */}
           <div>
             <h4 className="text-sm font-semibold tracking-widest uppercase mb-6" style={{ color: "#d4af37" }}>
-              Contact Us
+              {t.footer.contactUs}
             </h4>
             <ul className="space-y-4">
               <li className="flex gap-3">
                 <MapPin size={16} className="shrink-0 mt-0.5" style={{ color: "#d4af37" }} />
-                <span className="text-sm leading-relaxed" style={{ color: "rgba(255,248,240,0.7)" }}>
-                  {business.address}
-                </span>
+                <a
+                  href={business.mapUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm leading-relaxed hover:underline"
+                  style={{ color: "rgba(255,248,240,0.7)" }}
+                >
+                  {t.footer.address}
+                </a>
               </li>
               <li className="flex gap-3">
                 <Phone size={16} className="shrink-0" style={{ color: "#d4af37" }} />
@@ -215,7 +226,7 @@ export default function Footer() {
                 <div>
                   {business.hours.map((h) => (
                     <p key={h.days} className="text-sm" style={{ color: "rgba(255,248,240,0.7)" }}>
-                      {h.days}: {h.time}
+                      {tr("hours", h.days)}: {tr("hours", h.time)}
                     </p>
                   ))}
                 </div>
@@ -232,10 +243,10 @@ export default function Footer() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-xs" style={{ color: "rgba(255,248,240,0.45)" }}>
-            © {new Date().getFullYear()} Shyam Dresswala. All rights reserved.
+            © {new Date().getFullYear()} {t.brand.name}. {t.footer.rights}
           </p>
           <p className="text-xs" style={{ color: "rgba(255,248,240,0.45)" }}>
-            Premium Rental Fashion · {business.addressShort}
+            {t.brand.tagline} · {t.brand.location}
           </p>
         </div>
       </div>

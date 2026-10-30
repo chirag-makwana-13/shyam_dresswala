@@ -5,14 +5,17 @@ import Image from "next/image";
 import { MessageCircle } from "lucide-react";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
 import type { Product } from "@/data/products";
+import { useLang } from "@/i18n/LanguageProvider";
 
 interface ProductCardProps {
   product: Product;
   index?: number;
 }
 
-export default function ProductCard({ product, index = 0 }: ProductCardProps) {
-  const waUrl = getWhatsAppUrl(product.name, undefined, product.image);
+export default function ProductCard({ product: rawProduct, index = 0 }: ProductCardProps) {
+  const { t, lang, tr, product: localize } = useLang();
+  const product = localize(rawProduct);
+  const waUrl = getWhatsAppUrl(product.name, undefined, product.image, lang);
 
   return (
     <motion.div
@@ -43,7 +46,7 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
           className="absolute top-2 left-2 sm:top-3 sm:left-3 px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-[10px] sm:text-xs font-semibold"
           style={{ backgroundColor: "#5b0e2d", color: "#d4af37" }}
         >
-          {product.subcategory}
+          {tr("sub", product.subcategory)}
         </div>
       </div>
 
@@ -64,7 +67,7 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
         {product.sizes.length > 0 && (
           <div className="mb-3 sm:mb-4 hidden sm:block">
             <span className="text-xs font-medium uppercase tracking-wide" style={{ color: "#888" }}>
-              Sizes:
+              {t.common.sizes}
             </span>
             <div className="flex flex-wrap gap-1 mt-1">
               {product.sizes.map((s) => (
@@ -73,7 +76,7 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
                   className="text-xs px-2 py-0.5 rounded border"
                   style={{ borderColor: "#d4af37", color: "#5b0e2d" }}
                 >
-                  {s}
+                  {tr("sizeNames", s)}
                 </span>
               ))}
             </div>
@@ -87,7 +90,7 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
               ₹{product.price.toLocaleString("en-IN")}
             </span>
             <span className="text-xs ml-1" style={{ color: "#888" }}>
-              / event
+              {t.common.perEvent}
             </span>
           </div>
 
@@ -101,7 +104,7 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
             style={{ backgroundColor: "#25D366", color: "white" }}
           >
             <MessageCircle size={15} />
-            Enquire
+            {t.common.enquire}
           </motion.a>
         </div>
       </div>

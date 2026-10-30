@@ -1,16 +1,23 @@
 import { business } from "@/data/business";
+import { dictionaries, type Lang } from "@/i18n/translations";
 
-export function getWhatsAppUrl(productName?: string, customMessage?: string, productImage?: string): string {
+export function getWhatsAppUrl(
+  productName?: string,
+  customMessage?: string,
+  productImage?: string,
+  lang: Lang = "en"
+): string {
+  const w = dictionaries[lang].whatsapp;
   let message: string;
 
   if (customMessage) {
     message = customMessage;
   } else if (productName) {
-    message = `Hello Shyam Dresswala,\n\nI am interested in renting:\n\nProduct Name: ${productName}\n${
-      productImage ? `Product Image: ${business.siteUrl}${productImage}\n` : ""
-    }\nPlease share availability and pricing details.\n\nThank You.`;
+    message = `${w.productIntro} ${productName}\n${
+      productImage ? `${w.productImage} ${business.siteUrl}${productImage}\n` : ""
+    }\n${w.productOutro}`;
   } else {
-    message = `Hello Shyam Dresswala,\n\nI am interested in your rental collection. Please share more details.\n\nThank You.`;
+    message = w.general;
   }
 
   const encodedMessage = encodeURIComponent(message);

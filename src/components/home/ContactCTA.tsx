@@ -4,35 +4,37 @@ import { motion } from "framer-motion";
 import { Phone, MessageCircle, MapPin } from "lucide-react";
 import { business } from "@/data/business";
 import { getWhatsAppUrl, getCallUrl } from "@/lib/whatsapp";
-
-const actions = [
-  {
-    Icon: Phone,
-    label: "Call Now",
-    sublabel: business.phone,
-    href: getCallUrl(),
-    external: false,
-    primary: false,
-  },
-  {
-    Icon: MessageCircle,
-    label: "WhatsApp Now",
-    sublabel: "Instant Reply",
-    href: getWhatsAppUrl(),
-    external: true,
-    primary: true,
-  },
-  {
-    Icon: MapPin,
-    label: "Visit Store",
-    sublabel: business.addressShort,
-    href: business.mapUrl,
-    external: true,
-    primary: false,
-  },
-];
+import { useLang } from "@/i18n/LanguageProvider";
 
 export default function ContactCTA() {
+  const { t, lang, tr } = useLang();
+  const actions = [
+    {
+      Icon: Phone,
+      label: t.common.callNow,
+      sublabel: business.phone,
+      href: getCallUrl(),
+      external: false,
+      primary: false,
+    },
+    {
+      Icon: MessageCircle,
+      label: t.cta.whatsappNow,
+      sublabel: t.cta.instantReply,
+      href: getWhatsAppUrl(undefined, undefined, undefined, lang),
+      external: true,
+      primary: true,
+    },
+    {
+      Icon: MapPin,
+      label: t.cta.visitStore,
+      sublabel: t.brand.location,
+      href: business.mapUrl,
+      external: true,
+      primary: false,
+    },
+  ];
+
   return (
     <section
       className="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden"
@@ -60,7 +62,7 @@ export default function ContactCTA() {
           className="text-xs font-semibold tracking-[0.25em] uppercase mb-4"
           style={{ color: "rgba(61,9,32,0.7)" }}
         >
-          Get In Touch
+          {t.cta.label}
         </motion.p>
 
         <motion.h2
@@ -71,7 +73,7 @@ export default function ContactCTA() {
           className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4"
           style={{ fontFamily: "var(--font-playfair)", color: "#3d0920" }}
         >
-          Ready to Find Your Perfect Outfit?
+          {t.cta.title}
         </motion.h2>
 
         <motion.p
@@ -82,8 +84,7 @@ export default function ContactCTA() {
           className="text-base mb-12 max-w-xl mx-auto"
           style={{ color: "rgba(61,9,32,0.75)" }}
         >
-          Visit our store or reach out to us — our team is ready to help you look
-          stunning for your special occasion.
+          {t.cta.subtitle}
         </motion.p>
 
         {/* Action buttons */}
@@ -124,7 +125,7 @@ export default function ContactCTA() {
         >
           {business.hours.map((h) => (
             <div key={h.days} className="text-sm" style={{ color: "rgba(61,9,32,0.7)" }}>
-              <span className="font-semibold">{h.days}:</span> {h.time}
+              <span className="font-semibold">{tr("hours", h.days)}:</span> {tr("hours", h.time)}
             </div>
           ))}
         </motion.div>

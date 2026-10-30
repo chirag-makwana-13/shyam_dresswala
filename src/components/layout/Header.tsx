@@ -7,21 +7,24 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone } from "lucide-react";
 import { business } from "@/data/business";
 import { getCallUrl } from "@/lib/whatsapp";
+import { useLang } from "@/i18n/LanguageProvider";
+import LanguageSwitcher from "@/components/layout/LanguageSwitcher";
 
 const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/men", label: "Men's" },
-  { href: "/women", label: "Women's" },
-  { href: "/accessories", label: "Accessories" },
-  { href: "/gallery", label: "Gallery" },
-  { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
-];
+  { href: "/", key: "home" },
+  { href: "/men", key: "men" },
+  { href: "/women", key: "women" },
+  { href: "/accessories", key: "accessories" },
+  { href: "/gallery", key: "gallery" },
+  { href: "/about", key: "about" },
+  { href: "/contact", key: "contact" },
+] as const;
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
+  const { t } = useLang();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -67,10 +70,10 @@ export default function Header() {
                     color: scrolled || !isHome ? "#5b0e2d" : isHome ? "white" : "#5b0e2d",
                   }}
                 >
-                  Shyam Dresswala
+                  {t.brand.name}
                 </p>
                 <p className="text-xs" style={{ color: "#d4af37" }}>
-                  Premium Rental Fashion
+                  {t.brand.tagline}
                 </p>
               </div>
             </Link>
@@ -107,14 +110,15 @@ export default function Header() {
                         transition={{ type: "spring", bounce: 0.2, duration: 0.4 }}
                       />
                     )}
-                    <span className="relative">{link.label}</span>
+                    <span className="relative">{t.nav[link.key]}</span>
                   </Link>
                 );
               })}
             </nav>
 
             {/* CTA + Hamburger */}
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2 sm:gap-3">
+              <LanguageSwitcher tone={scrolled || !isHome ? "light" : "dark"} />
               <a
                 href={getCallUrl()}
                 className="hidden md:flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold transition-all"
@@ -128,7 +132,7 @@ export default function Header() {
                 className="lg:hidden p-2 rounded-lg"
                 style={{ color: scrolled || !isHome ? "#5b0e2d" : "white" }}
                 onClick={() => setMenuOpen((o) => !o)}
-                aria-label="Toggle menu"
+                aria-label={t.common.toggleMenu}
               >
                 {menuOpen ? <X size={24} /> : <Menu size={24} />}
               </button>
@@ -168,7 +172,7 @@ export default function Header() {
                           borderColor: "rgba(212,175,55,0.2)",
                         }}
                       >
-                        {link.label}
+                        {t.nav[link.key]}
                       </Link>
                     </motion.div>
                   );
@@ -182,7 +186,7 @@ export default function Header() {
                   style={{ backgroundColor: "#d4af37", color: "#5b0e2d" }}
                 >
                   <Phone size={18} />
-                  Call Now
+                  {t.common.callNow}
                 </a>
                 <p className="text-center text-sm" style={{ color: "rgba(212,175,55,0.7)" }}>
                   {business.phone}

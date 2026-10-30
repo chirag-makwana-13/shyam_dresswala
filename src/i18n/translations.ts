@@ -1,0 +1,520 @@
+export type Lang = "en" | "gu";
+
+export const LANGS: { code: Lang; label: string }[] = [
+  { code: "en", label: "EN" },
+  { code: "gu", label: "ગુજ" },
+];
+
+const en = {
+  common: {
+    all: "All",
+    loading: "Loading...",
+    noProducts: "No products found.",
+    sizes: "Sizes:",
+    perEvent: "/ event",
+    enquire: "Enquire",
+    viewAll: "View All",
+    rentalCollection: "Rental Collection",
+    callNow: "Call Now",
+    freeSize: "Free Size",
+    whatsappEnquiry: "WhatsApp Enquiry",
+    chatWhatsApp: "Chat on WhatsApp",
+    chatWithUs: "Chat with us on WhatsApp!",
+    toggleMenu: "Toggle menu",
+    language: "Language",
+  },
+  nav: {
+    home: "Home",
+    men: "Men's",
+    women: "Women's",
+    accessories: "Accessories",
+    gallery: "Gallery",
+    about: "About",
+    contact: "Contact",
+  },
+  brand: {
+    name: "Shyam Dresswala",
+    tagline: "Premium Rental Fashion",
+    since: "Since",
+    location: "Jamnagar, Gujarat",
+    footerDesc:
+      "Premium Rental Fashion For Every Occasion. Premium ethnic and western wear available on rent for weddings, receptions, and all celebrations.",
+  },
+  hero: {
+    title1: "Premium Rental",
+    titleAccent: "Fashion",
+    title2: "For Every Occasion",
+    subtitle:
+      "Explore our exquisite collection of Sherwani, Lehenga, Chaniya Choli, Gown & more — crafted for your most memorable moments.",
+    browse: "Browse Collection",
+    contactUs: "Contact Us",
+    stats: {
+      years: "Years Experience",
+      outfits: "Outfits Available",
+      customers: "Happy Customers",
+      satisfaction: "Satisfaction Rate",
+    },
+  },
+  categories: {
+    label: "Explore",
+    title: "Our Collections",
+    subtitle:
+      "From traditional ethnic wear to modern fashion — find the perfect outfit for every occasion.",
+    men: "Men's Collection",
+    women: "Women's Collection",
+    accessories: "Accessories",
+  },
+  featured: {
+    label: "Trending",
+    title: "Featured Collection",
+    subtitle:
+      "Hand-picked premium outfits loved by our customers for weddings, receptions, and celebrations.",
+    viewAll: "View All Collections",
+  },
+  why: {
+    label: "Why Us",
+    title: "Why Choose Shyam Dresswala?",
+    subtitle:
+      "We blend quality, affordability, and style to make your special occasion truly unforgettable.",
+    items: [
+      {
+        title: "Premium Quality",
+        desc: "Each outfit is carefully selected and maintained to the highest quality standards for an impeccable look.",
+      },
+      {
+        title: "Affordable Rental Price",
+        desc: "Experience luxury fashion without the luxury price tag. Our rentals save you up to 90% vs buying.",
+      },
+      {
+        title: "Large Collection",
+        desc: "With 500+ outfits across men's, women's, and accessories — you'll always find your perfect match.",
+      },
+      {
+        title: "Perfect Fitting",
+        desc: "We offer alterations and fitting services to ensure every outfit fits you flawlessly on your special day.",
+      },
+      {
+        title: "Latest Designs",
+        desc: "Our collection is updated seasonally with the latest bridal, festive, and reception wear trends.",
+      },
+      {
+        title: "Customer Support",
+        desc: "Our dedicated team is available 7 days a week to assist you in finding the perfect outfit.",
+      },
+    ],
+  },
+  reviews: {
+    label: "Google Reviews",
+    title: "What Our Customers Say",
+    subtitle: "Over {total} happy customers have shared their experience with Shyam Dresswala.",
+    outOf: "out of 5",
+    googleReviews: "Google Reviews",
+    viewOnGoogle: "View on Google",
+  },
+  cta: {
+    label: "Get In Touch",
+    title: "Ready to Find Your Perfect Outfit?",
+    subtitle:
+      "Visit our store or reach out to us — our team is ready to help you look stunning for your special occasion.",
+    whatsappNow: "WhatsApp Now",
+    instantReply: "Instant Reply",
+    visitStore: "Visit Store",
+  },
+  collection: {
+    men: "Men's Collection",
+    women: "Women's Collection",
+    accessories: "Accessories",
+  },
+  gallery: {
+    label: "Our Work",
+    title: "Gallery",
+    subtitle: "Real customers, real moments — see how our outfits make every occasion magical.",
+  },
+  about: {
+    label: "Our Story",
+    title: "About Shyam Dresswala",
+    hero: "Since 2019, we have been Jamnagar's most trusted destination for premium rental fashion — helping thousands of families look their absolute best for life's most special moments.",
+    stats: {
+      years: "Years of Excellence",
+      customers: "Happy Customers",
+      outfits: "Outfits Available",
+      satisfaction: "Satisfaction Rate",
+    },
+    est: "Est.",
+    storyTitle: "Dressing Dreams Since 2019",
+    story: [
+      "Shyam Dresswala was founded in 2019 with a simple vision: to make premium ethnic and wedding fashion accessible to everyone. We believed that every person deserves to look and feel extraordinary on their most memorable occasions — without the burden of buying expensive outfits they may wear only once.",
+      "Starting with a small collection of men's sherwanis in our flagship store in Jamnagar, we have grown to offer over 500+ outfits spanning men's ethnic wear, women's bridal and festive collections, and a comprehensive accessories range.",
+      "Today, Shyam Dresswala is a name trusted by thousands of families across Gujarat for weddings, receptions, festivals, corporate events, and every celebration in between. Our commitment to quality, care, and customer satisfaction has remained unchanged for 7+ years.",
+    ],
+    commitment: "Our Commitment to Quality",
+    values: [
+      "Premium quality fabrics and craftsmanship in every outfit",
+      "Regular dry-cleaning and maintenance between rentals",
+      "Expert staff to assist with selection and fitting",
+      "Wide range of sizes including plus sizes",
+      "Latest seasonal trends updated every season",
+      "Transparent pricing with no hidden charges",
+    ],
+    mission: {
+      title: "Our Mission",
+      text: "To provide every customer with access to premium, well-maintained rental fashion at affordable prices — making them look and feel their very best on every special occasion, while saving money and reducing fashion waste.",
+    },
+    vision: {
+      title: "Our Vision",
+      text: "To become India's most trusted rental fashion destination — where every celebration begins with the perfect outfit. We envision a future where fashion is shared, sustainable, and accessible to all.",
+    },
+    visitTitle: "Visit Our Store Today",
+    visitText:
+      "Experience our collection in person and let our experts help you find the perfect outfit for your occasion.",
+    getDirections: "Get Directions",
+  },
+  contact: {
+    label: "We'd love to hear from you",
+    title: "Contact Us",
+    subtitle:
+      "Visit our store, give us a call, or reach out on WhatsApp — we're here 7 days a week to help you find the perfect outfit.",
+    callUs: "Call Us",
+    whatsapp: "WhatsApp",
+    chatNow: "Chat Now",
+    email: "Email",
+    sendEmail: "Send Email",
+    visitStore: "Visit Store",
+    getDirections: "Get Directions",
+    workingHours: "Working Hours",
+    mapTitle: "Shyam Dresswala Location",
+    preferChat: "Prefer to Chat?",
+    preferChatText:
+      "Send us a WhatsApp message for quick assistance, availability checks, or booking.",
+    whatsappUs: "WhatsApp Us Now",
+  },
+  footer: {
+    quickLinks: "Quick Links",
+    aboutUs: "About Us",
+    collections: "Collections",
+    men: "MEN",
+    women: "WOMEN",
+    contactUs: "Contact Us",
+    rights: "All rights reserved.",
+    address: "Shyam Dresswala, Jamnagar, Gujarat",
+  },
+  whatsapp: {
+    general:
+      "Hello Shyam Dresswala,\n\nI am interested in your rental collection. Please share more details.\n\nThank You.",
+    productIntro: "Hello Shyam Dresswala,\n\nI am interested in renting:\n\nProduct Name:",
+    productImage: "Product Image:",
+    productOutro: "Please share availability and pricing details.\n\nThank You.",
+  },
+  sub: {} as Record<string, string>,
+  sizeNames: {} as Record<string, string>,
+  hours: {} as Record<string, string>,
+  galleryCats: {} as Record<string, string>,
+  galleryTitles: {} as Record<string, string>,
+};
+
+type Dict = typeof en;
+
+const gu: Dict = {
+  common: {
+    all: "બધા",
+    loading: "લોડ થઈ રહ્યું છે...",
+    noProducts: "કોઈ પ્રોડક્ટ મળ્યું નથી.",
+    sizes: "સાઇઝ:",
+    perEvent: "/ પ્રસંગ",
+    enquire: "પૂછપરછ",
+    viewAll: "બધું જુઓ",
+    rentalCollection: "ભાડાનું કલેક્શન",
+    callNow: "હમણાં કૉલ કરો",
+    freeSize: "ફ્રી સાઇઝ",
+    whatsappEnquiry: "વોટ્સએપ પૂછપરછ",
+    chatWhatsApp: "વોટ્સએપ પર ચેટ કરો",
+    chatWithUs: "વોટ્સએપ પર અમારી સાથે ચેટ કરો!",
+    toggleMenu: "મેનુ ખોલો/બંધ કરો",
+    language: "ભાષા",
+  },
+  nav: {
+    home: "હોમ",
+    men: "પુરુષો",
+    women: "મહિલાઓ",
+    accessories: "એક્સેસરીઝ",
+    gallery: "ગેલેરી",
+    about: "અમારા વિશે",
+    contact: "સંપર્ક",
+  },
+  brand: {
+    name: "શ્યામ ડ્રેસવાલા",
+    tagline: "પ્રીમિયમ ભાડાનું ફેશન",
+    since: "સ્થાપના",
+    location: "જામનગર, ગુજરાત",
+    footerDesc:
+      "દરેક પ્રસંગ માટે પ્રીમિયમ ભાડાનું ફેશન. લગ્ન, રિસેપ્શન અને દરેક ઉજવણી માટે પ્રીમિયમ ઇન્ડિયન અને વેસ્ટર્ન વસ્ત્રો ભાડે ઉપલબ્ધ છે.",
+  },
+  hero: {
+    title1: "પ્રીમિયમ ભાડાનું",
+    titleAccent: "ફેશન",
+    title2: "દરેક પ્રસંગ માટે",
+    subtitle:
+      "શેરવાની, લહેંગા, ચણિયા ચોળી, ગાઉન અને વધુનું અમારું ઉત્કૃષ્ટ કલેક્શન જુઓ — તમારી સૌથી યાદગાર ક્ષણો માટે તૈયાર કરેલું.",
+    browse: "કલેક્શન જુઓ",
+    contactUs: "સંપર્ક કરો",
+    stats: {
+      years: "વર્ષનો અનુભવ",
+      outfits: "ઉપલબ્ધ આઉટફિટ",
+      customers: "ખુશ ગ્રાહકો",
+      satisfaction: "સંતોષ દર",
+    },
+  },
+  categories: {
+    label: "જુઓ",
+    title: "અમારા કલેક્શન",
+    subtitle:
+      "પરંપરાગત ઇન્ડિયન વસ્ત્રોથી લઈને આધુનિક ફેશન સુધી — દરેક પ્રસંગ માટે યોગ્ય આઉટફિટ શોધો.",
+    men: "પુરુષોનું કલેક્શન",
+    women: "મહિલાઓનું કલેક્શન",
+    accessories: "એક્સેસરીઝ",
+  },
+  featured: {
+    label: "ટ્રેન્ડિંગ",
+    title: "ખાસ કલેક્શન",
+    subtitle:
+      "લગ્ન, રિસેપ્શન અને ઉજવણીઓ માટે અમારા ગ્રાહકોના પસંદગીના, ખાસ પસંદ કરેલા પ્રીમિયમ આઉટફિટ.",
+    viewAll: "બધા કલેક્શન જુઓ",
+  },
+  why: {
+    label: "અમને કેમ પસંદ કરવા",
+    title: "શ્યામ ડ્રેસવાલા કેમ પસંદ કરવા?",
+    subtitle:
+      "ગુણવત્તા, પોસાય તેવી કિંમત અને સ્ટાઇલનો સંગમ — જે તમારા ખાસ પ્રસંગને ખરેખર યાદગાર બનાવે છે.",
+    items: [
+      {
+        title: "પ્રીમિયમ ગુણવત્તા",
+        desc: "દરેક આઉટફિટ ઉત્તમ ગુણવત્તાના ધોરણે કાળજીપૂર્વક પસંદ કરી સાચવવામાં આવે છે, જેથી તમારો લુક દોષરહિત લાગે.",
+      },
+      {
+        title: "પોસાય તેવું ભાડું",
+        desc: "લક્ઝરી ફેશનનો અનુભવ લક્ઝરી કિંમત વગર. ખરીદી કરતાં ભાડે લેવાથી તમે 90% સુધી બચત કરો છો.",
+      },
+      {
+        title: "વિશાળ કલેક્શન",
+        desc: "પુરુષો, મહિલાઓ અને એક્સેસરીઝમાં 500+ આઉટફિટ સાથે — તમને હંમેશા તમારી પસંદગીનું મળી જ રહેશે.",
+      },
+      {
+        title: "પરફેક્ટ ફિટિંગ",
+        desc: "તમારા ખાસ દિવસે દરેક આઉટફિટ તમને એકદમ બરાબર ફિટ થાય તે માટે અમે અલ્ટરેશન અને ફિટિંગ સેવા આપીએ છીએ.",
+      },
+      {
+        title: "લેટેસ્ટ ડિઝાઇન",
+        desc: "અમારું કલેક્શન દર સિઝનમાં બ્રાઇડલ, તહેવારો અને રિસેપ્શન વસ્ત્રોના નવા ટ્રેન્ડ સાથે અપડેટ થાય છે.",
+      },
+      {
+        title: "ગ્રાહક સહાય",
+        desc: "અમારી સમર્પિત ટીમ અઠવાડિયાના 7 દિવસ તમને યોગ્ય આઉટફિટ શોધવામાં મદદ કરવા ઉપલબ્ધ છે.",
+      },
+    ],
+  },
+  reviews: {
+    label: "ગૂગલ રિવ્યૂ",
+    title: "અમારા ગ્રાહકો શું કહે છે",
+    subtitle: "{total} થી વધુ ખુશ ગ્રાહકોએ શ્યામ ડ્રેસવાલા સાથેનો પોતાનો અનુભવ શેર કર્યો છે.",
+    outOf: "5 માંથી",
+    googleReviews: "ગૂગલ રિવ્યૂ",
+    viewOnGoogle: "ગૂગલ પર જુઓ",
+  },
+  cta: {
+    label: "સંપર્કમાં રહો",
+    title: "તમારો પરફેક્ટ આઉટફિટ શોધવા તૈયાર છો?",
+    subtitle:
+      "અમારી દુકાનની મુલાકાત લો અથવા અમારો સંપર્ક કરો — તમારા ખાસ પ્રસંગે તમને શાનદાર દેખાડવા અમારી ટીમ તૈયાર છે.",
+    whatsappNow: "હમણાં વોટ્સએપ કરો",
+    instantReply: "તરત જવાબ",
+    visitStore: "દુકાનની મુલાકાત લો",
+  },
+  collection: {
+    men: "પુરુષોનું કલેક્શન",
+    women: "મહિલાઓનું કલેક્શન",
+    accessories: "એક્સેસરીઝ",
+  },
+  gallery: {
+    label: "અમારું કામ",
+    title: "ગેલેરી",
+    subtitle: "સાચા ગ્રાહકો, સાચી ક્ષણો — જુઓ કે અમારા આઉટફિટ દરેક પ્રસંગને કેવી રીતે જાદુઈ બનાવે છે.",
+  },
+  about: {
+    label: "અમારી વાર્તા",
+    title: "શ્યામ ડ્રેસવાલા વિશે",
+    hero: "2019 થી અમે જામનગરમાં પ્રીમિયમ ભાડાના ફેશન માટે સૌથી વિશ્વસનીય સ્થળ છીએ — હજારો પરિવારોને જીવનના સૌથી ખાસ પ્રસંગોએ શ્રેષ્ઠ દેખાવામાં મદદ કરીએ છીએ.",
+    stats: {
+      years: "ઉત્કૃષ્ટતાના વર્ષો",
+      customers: "ખુશ ગ્રાહકો",
+      outfits: "ઉપલબ્ધ આઉટફિટ",
+      satisfaction: "સંતોષ દર",
+    },
+    est: "સ્થાપના",
+    storyTitle: "2019 થી સપનાઓને સજાવી રહ્યા છીએ",
+    story: [
+      "શ્યામ ડ્રેસવાલાની સ્થાપના 2019 માં એક સરળ દૃષ્ટિ સાથે થઈ: પ્રીમિયમ ઇન્ડિયન અને લગ્નના વસ્ત્રો દરેક માટે સુલભ બનાવવા. અમે માનીએ છીએ કે દરેક વ્યક્તિ પોતાના સૌથી યાદગાર પ્રસંગોએ અસાધારણ દેખાવા અને અનુભવવાને લાયક છે — જે મોંઘા કપડાં કદાચ એક જ વાર પહેરવાના હોય તે ખરીદવાના બોજ વગર.",
+      "જામનગરના અમારા મુખ્ય સ્ટોરમાં પુરુષોની શેરવાનીના નાના કલેક્શનથી શરૂઆત કરીને, આજે અમે પુરુષોના ઇન્ડિયન વસ્ત્રો, મહિલાઓના બ્રાઇડલ અને તહેવારોના કલેક્શન તેમજ સંપૂર્ણ એક્સેસરીઝ સહિત 500+ થી વધુ આઉટફિટ આપીએ છીએ.",
+      "આજે શ્યામ ડ્રેસવાલા સમગ્ર ગુજરાતમાં હજારો પરિવારો માટે લગ્ન, રિસેપ્શન, તહેવારો, કોર્પોરેટ ઇવેન્ટ અને દરેક ઉજવણી માટે વિશ્વસનીય નામ છે. ગુણવત્તા, કાળજી અને ગ્રાહક સંતોષ પ્રત્યેની અમારી પ્રતિબદ્ધતા 7+ વર્ષથી અડગ રહી છે.",
+    ],
+    commitment: "ગુણવત્તા પ્રત્યે અમારી પ્રતિબદ્ધતા",
+    values: [
+      "દરેક આઉટફિટમાં પ્રીમિયમ ગુણવત્તાનું કાપડ અને કારીગરી",
+      "દરેક ભાડા વચ્ચે નિયમિત ડ્રાય-ક્લીનિંગ અને જાળવણી",
+      "પસંદગી અને ફિટિંગમાં મદદ માટે નિષ્ણાત સ્ટાફ",
+      "પ્લસ સાઇઝ સહિત સાઇઝની વિશાળ શ્રેણી",
+      "દર સિઝનમાં નવા સિઝનલ ટ્રેન્ડ સાથે અપડેટ",
+      "કોઈ છુપા ચાર્જ વગર પારદર્શક કિંમત",
+    ],
+    mission: {
+      title: "અમારું મિશન",
+      text: "દરેક ગ્રાહકને પોસાય તેવી કિંમતે પ્રીમિયમ, સારી રીતે જાળવેલા ભાડાના ફેશન સુધી પહોંચ આપવી — જેથી દરેક ખાસ પ્રસંગે તેઓ શ્રેષ્ઠ દેખાય અને અનુભવે, પૈસા બચાવે અને ફેશનનો બગાડ ઘટે.",
+    },
+    vision: {
+      title: "અમારું વિઝન",
+      text: "ભારતનું સૌથી વિશ્વસનીય ભાડાનું ફેશન સ્થળ બનવું — જ્યાં દરેક ઉજવણીની શરૂઆત પરફેક્ટ આઉટફિટથી થાય. અમે એવા ભવિષ્યની કલ્પના કરીએ છીએ જ્યાં ફેશન વહેંચાય, ટકાઉ હોય અને બધા માટે સુલભ હોય.",
+    },
+    visitTitle: "આજે જ અમારી દુકાનની મુલાકાત લો",
+    visitText:
+      "અમારું કલેક્શન રૂબરૂ જુઓ અને અમારા નિષ્ણાતોને તમારા પ્રસંગ માટે પરફેક્ટ આઉટફિટ શોધવામાં મદદ કરવા દો.",
+    getDirections: "રસ્તો મેળવો",
+  },
+  contact: {
+    label: "અમને તમારી પાસેથી સાંભળવું ગમશે",
+    title: "સંપર્ક કરો",
+    subtitle:
+      "અમારી દુકાનની મુલાકાત લો, કૉલ કરો અથવા વોટ્સએપ પર સંપર્ક કરો — પરફેક્ટ આઉટફિટ શોધવામાં મદદ માટે અમે અઠવાડિયાના 7 દિવસ હાજર છીએ.",
+    callUs: "અમને કૉલ કરો",
+    whatsapp: "વોટ્સએપ",
+    chatNow: "હમણાં ચેટ કરો",
+    email: "ઈમેલ",
+    sendEmail: "ઈમેલ મોકલો",
+    visitStore: "દુકાનની મુલાકાત",
+    getDirections: "રસ્તો મેળવો",
+    workingHours: "કામના કલાકો",
+    mapTitle: "શ્યામ ડ્રેસવાલાનું સ્થળ",
+    preferChat: "ચેટ કરવાનું પસંદ કરો છો?",
+    preferChatText:
+      "ઝડપી મદદ, ઉપલબ્ધતા તપાસ અથવા બુકિંગ માટે અમને વોટ્સએપ સંદેશ મોકલો.",
+    whatsappUs: "હમણાં વોટ્સએપ કરો",
+  },
+  footer: {
+    quickLinks: "ઝડપી લિંક્સ",
+    aboutUs: "અમારા વિશે",
+    collections: "કલેક્શન",
+    men: "પુરુષો",
+    women: "મહિલાઓ",
+    contactUs: "સંપર્ક કરો",
+    rights: "બધા અધિકારો સુરક્ષિત.",
+    address: "શ્યામ ડ્રેસવાલા, જામનગર, ગુજરાત",
+  },
+  whatsapp: {
+    general:
+      "નમસ્તે શ્યામ ડ્રેસવાલા,\n\nહું તમારા ભાડાના કલેક્શનમાં રસ ધરાવું છું. કૃપા કરીને વધુ વિગતો મોકલો.\n\nધન્યવાદ.",
+    productIntro: "નમસ્તે શ્યામ ડ્રેસવાલા,\n\nહું નીચેની વસ્તુ ભાડે લેવા માંગું છું:\n\nપ્રોડક્ટનું નામ:",
+    productImage: "પ્રોડક્ટ ઇમેજ:",
+    productOutro: "કૃપા કરીને ઉપલબ્ધતા અને કિંમતની વિગતો મોકલો.\n\nધન્યવાદ.",
+  },
+  sub: {
+    Sherwani: "શેરવાની",
+    Suit: "સૂટ",
+    Blazer: "બ્લેઝર",
+    Jodhpuri: "જોધપુરી",
+    Koti: "કોટી",
+    "Kurta Pajama": "કુર્તા પાયજામા",
+    "Chaniya Choli": "ચણિયા ચોળી",
+    "One Piece": "વન પીસ",
+    Lehenga: "લહેંગા",
+    Gown: "ગાઉન",
+    Saree: "સાડી",
+    Safa: "સાફો",
+    "Safa / Turban": "સાફો / પાઘડી",
+    Chunni: "ચૂંદડી",
+    Dupatta: "દુપટ્ટા",
+    "Chunni / Dupatta": "ચૂંદડી / દુપટ્ટા",
+    Mojdi: "મોજડી",
+    Brooch: "બ્રૂચ",
+    Pagdi: "પાઘડી",
+  },
+  sizeNames: { "Free Size": "ફ્રી સાઇઝ" },
+  hours: {
+    "Monday – Saturday": "સોમવાર – શનિવાર",
+    Sunday: "રવિવાર",
+    "10:00 AM – 9:00 PM": "સવારે 10:00 – રાત્રે 9:00",
+    "10:00 AM – 8:00 PM": "સવારે 10:00 – રાત્રે 8:00",
+  },
+  galleryCats: {
+    "Groom Collection": "વરરાજા કલેક્શન",
+    "Bride Collection": "દુલ્હન કલેક્શન",
+    "Couple Collection": "યુગલ કલેક્શન",
+    "Family Collection": "ફેમિલી કલેક્શન",
+    "Traditional Collection": "પરંપરાગત કલેક્શન",
+  },
+  galleryTitles: {
+    "Royal Sherwani Groom": "રોયલ શેરવાની વરરાજા",
+    "Ivory Jodhpuri Groom": "આઇવરી જોધપુરી વરરાજા",
+    "Navy Suit Groom": "નેવી સૂટ વરરાજા",
+    "Classic Sherwani": "ક્લાસિક શેરવાની",
+    "Bridal Lehenga": "બ્રાઇડલ લહેંગા",
+    "Red Chaniya Choli": "લાલ ચણિયા ચોળી",
+    "Royal Blue Gown": "રોયલ બ્લૂ ગાઉન",
+    "Wedding Couple": "લગ્નનું યુગલ",
+    "Reception Couple": "રિસેપ્શન યુગલ",
+    "Traditional Couple": "પરંપરાગત યુગલ",
+    "Wedding Family": "લગ્ન પરિવાર",
+    "Festive Family": "તહેવારનો પરિવાર",
+    "Family Celebration": "પારિવારિક ઉજવણી",
+    "Navratri Chaniya": "નવરાત્રી ચણિયા",
+    "Garba Night": "ગરબા નાઇટ",
+    "Diwali Kurta": "દિવાળી કુર્તા",
+    "Traditional Saree": "પરંપરાગત સાડી",
+  },
+};
+
+export const dictionaries: Record<Lang, Dict> = { en, gu };
+export type { Dict };
+
+/* ───────── Data translations (Gujarati) ───────── */
+
+export const productsGu: Record<string, { name: string; description: string }> = {
+  "m-sh-1": { name: "રોયલ બ્લૂ એમ્બ્રોઇડરી શેરવાની", description: "સોનેરી દોરાની બારીક એમ્બ્રોઇડરી સાથેની ભવ્ય રોયલ બ્લૂ શેરવાની, આધુનિક વરરાજા માટે પરફેક્ટ." },
+  "m-sh-2": { name: "આઇવરી સિલ્ક શેરવાની", description: "બનારસી બ્રોકેડ વર્ક સાથેની ક્લાસિક આઇવરી સિલ્ક શેરવાની. વરરાજા માટે સદાબહાર પસંદગી." },
+  "m-sh-3": { name: "મરૂન બ્રોકેડ શેરવાની", description: "સોનેરી ઝરીના ઉચ્ચારો સાથે પ્રીમિયમ બ્રોકેડ કાપડમાં બનેલી સમૃદ્ધ મરૂન શેરવાની." },
+  "m-sh-4": { name: "ક્રીમ ફ્લોરલ શેરવાની", description: "નાજુક ફૂલોની એમ્બ્રોઇડરી સાથેની હળવી ક્રીમ શેરવાની. દિવસના લગ્ન અને રિસેપ્શન માટે આદર્શ." },
+  "m-su-1": { name: "નેવી બ્લૂ 3-પીસ સૂટ", description: "રિસેપ્શન અને કોર્પોરેટ ઇવેન્ટ માટે આદર્શ આકર્ષક નેવી બ્લૂ 3-પીસ સૂટ." },
+  "m-su-2": { name: "ચારકોલ ગ્રે ક્લાસિક સૂટ", description: "સ્લિમ-ફિટ કટ સાથેનો સદાબહાર ચારકોલ ગ્રે સૂટ. દરેક ફોર્મલ પ્રસંગ માટે પરફેક્ટ." },
+  "m-su-3": { name: "બ્લેક ટક્સિડો સૂટ", description: "સાટિન લેપલ સાથેનો પ્રીમિયમ બ્લેક ટક્સિડો, સાંજના રિસેપ્શન અને ભવ્ય કાર્યક્રમો માટે આદર્શ." },
+  "m-bl-1": { name: "રોયલ બ્લૂ બ્લેઝર", description: "સેમી-ફોર્મલ પ્રસંગો માટે પરફેક્ટ સ્માર્ટ રોયલ બ્લૂ સિંગલ-બટન બ્લેઝર." },
+  "m-bl-2": { name: "બર્ગન્ડી વેલ્વેટ બ્લેઝર", description: "કોઈપણ પ્રસંગે બોલ્ડ અને સ્ટાઇલિશ લુક માટે આલીશાન બર્ગન્ડી વેલ્વેટ બ્લેઝર." },
+  "m-jo-1": { name: "આઇવરી જોધપુરી બંધગલા", description: "એમ્બ્રોઇડરીવાળા કોલર સાથેનો શાહી આઇવરી જોધપુરી સૂટ, પરંપરા અને ભવ્યતાનું મિશ્રણ." },
+  "m-jo-2": { name: "ક્રીમ જોધપુરી સૂટ", description: "ઓછી એમ્બ્રોઇડરી સાથેનો ક્લાસિક ક્રીમ જોધપુરી બંધગલા, સુઘડ લુક માટે." },
+  "m-ko-1": { name: "એમ્બ્રોઇડરી નેહરુ કોટી", description: "તહેવારના લુક માટે કુર્તા પર પહેરવાની સુંદર એમ્બ્રોઇડરીવાળી નેહરુ કોટી." },
+  "m-ko-2": { name: "સિલ્ક બ્રોકેડ કોટી", description: "સોનેરી રંગોમાં ભવ્ય સિલ્ક બ્રોકેડ કોટી, લગ્ન અને મહેંદી માટે પરફેક્ટ." },
+  "m-kp-1": { name: "ક્લાસિક વ્હાઇટ કુર્તા પાયજામા", description: "ચિકન એમ્બ્રોઇડરી સાથેનો શુદ્ધ કોટનનો સફેદ કુર્તા પાયજામા. સુંદર અને આરામદાયક." },
+  "m-kp-2": { name: "સ્કાય બ્લૂ કુર્તા પાયજામા", description: "તહેવારના પ્રસંગો માટે હળવી એમ્બ્રોઇડરી સાથેનો આછો સ્કાય બ્લૂ કુર્તા પાયજામા." },
+  "m-kp-3": { name: "ફેસ્ટિવ ગ્રીન કુર્તા સેટ", description: "સોનેરી બોર્ડર સાથેનો ચમકદાર લીલો કુર્તા પાયજામા, દિવાળી અને તહેવારો માટે પરફેક્ટ." },
+  "w-cc-1": { name: "લાલ મિરર વર્ક ચણિયા ચોળી", description: "રંગબેરંગી મિરર વર્ક સાથેની પરંપરાગત લાલ ચણિયા ચોળી. નવરાત્રી અને લગ્નોમાં આકર્ષણનું કેન્દ્ર." },
+  "w-cc-2": { name: "બ્લૂ બાંધણી ચણિયા ચોળી", description: "સોનેરી શણગાર સાથેની આકર્ષક બ્લૂ બાંધણી પ્રિન્ટ ચણિયા ચોળી." },
+  "w-cc-3": { name: "પિંક એમ્બ્રોઇડરી ચણિયા ચોળી", description: "ભારે એમ્બ્રોઇડરી અને સિક્વિન વર્ક સાથેની નાજુક ગુલાબી ચણિયા ચોળી." },
+  "w-op-1": { name: "નેવી બ્લૂ અનારકલી ડ્રેસ", description: "ઘેરવાળા સ્કર્ટ સાથેનો સુંદર નેવી બ્લૂ ફ્લોર-લેન્થ અનારકલી ડ્રેસ. રિસેપ્શન માટે પરફેક્ટ." },
+  "w-op-2": { name: "મરૂન ઇવનિંગ મેક્સી", description: "એમ્બ્રોઇડરીવાળા બોડિસ સાથેનો સોફિસ્ટિકેટેડ મરૂન મેક્સી ડ્રેસ, સાંજના કાર્યક્રમો માટે આદર્શ." },
+  "w-le-1": { name: "બ્રાઇડલ રેડ લહેંગા", description: "ભારે ઝરી એમ્બ્રોઇડરી અને દુપટ્ટા સાથેનો ઉત્કૃષ્ટ બ્રાઇડલ લાલ લહેંગા. દુલ્હનનું સપનું." },
+  "w-le-2": { name: "પિંક ફ્લોરલ લહેંગા ચોળી", description: "ફૂલોની ડિઝાઇન અને બારીક એમ્બ્રોઇડરી સાથેનો ભવ્ય ગુલાબી લહેંગા." },
+  "w-le-3": { name: "પીચ એમ્બ્રોઇડરી લહેંગા", description: "દોરા અને સિક્વિન એમ્બ્રોઇડરી સાથેનો હળવો પીચ લહેંગા. દરેક પ્રસંગ માટે સુંદર." },
+  "w-go-1": { name: "રોયલ બ્લૂ બોલગાઉન", description: "ઘેરવાળા સ્કર્ટ અને શણગારેલા બોડિસ સાથેનો આકર્ષક રોયલ બ્લૂ બોલગાઉન. શાહી અને ગ્લેમરસ." },
+  "w-go-2": { name: "એમરાલ્ડ ગ્રીન ઇવનિંગ ગાઉન", description: "જાદુઈ સાંજના લુક માટે સિક્વિન વર્ક સાથેનો સુંદર એમરાલ્ડ ગ્રીન ફ્લોર-લેન્થ ગાઉન." },
+  "w-sa-1": { name: "બનારસી સિલ્ક સાડી", description: "સોનેરી ઝરીની બોર્ડર સાથેની ક્લાસિક બનારસી સિલ્ક સાડી. સદાબહાર પરંપરાગત પસંદગી." },
+  "w-sa-2": { name: "કાંજીવરમ સિલ્ક સાડી", description: "સમૃદ્ધ રંગોમાં ટેમ્પલ બોર્ડર સાથેની અસલ કાંજીવરમ સિલ્ક સાડી." },
+  "w-sa-3": { name: "જ્યોર્જેટ પાર્ટી સાડી", description: "સિક્વિન શણગાર સાથેની હળવી જ્યોર્જેટ સાડી. પાર્ટી અને કાર્યક્રમો માટે પરફેક્ટ." },
+  "a-sa-1": { name: "રોયલ મરૂન સાફો", description: "સુંદર પ્લીટિંગ સાથેનો પરંપરાગત મરૂન સાફો/પાઘડી. વરરાજા અને પરિવાર માટે પરફેક્ટ." },
+  "a-sa-2": { name: "ગોલ્ડ બ્રોકેડ સાફો", description: "ભવ્ય વરરાજા લુક માટે મેચિંગ બ્રૂચ સાથેનો ભવ્ય ગોલ્ડ બ્રોકેડ સાફો." },
+  "a-ch-1": { name: "એમ્બ્રોઇડરી ચૂંદડી", description: "ચણિયા ચોળી આઉટફિટને શોભાવવા માટે સુંદર એમ્બ્રોઇડરીવાળી ચૂંદડી." },
+  "a-du-1": { name: "સિલ્ક દુપટ્ટા", description: "ઝરીની બોર્ડર સાથેનો શુદ્ધ સિલ્કનો દુપટ્ટો, અનેક રંગોમાં ઉપલબ્ધ." },
+  "a-mo-1": { name: "પરંપરાગત લેધર મોજડી", description: "પુરુષો માટે સોનેરી એમ્બ્રોઇડરી સાથેની હાથથી બનાવેલી પરંપરાગત લેધર મોજડી." },
+  "a-mo-2": { name: "એમ્બ્રોઇડરી મોજડી", description: "તહેવારના ઇન્ડિયન લુક માટે મિરર વર્ક સાથેની ભારે એમ્બ્રોઇડરીવાળી મોજડી." },
+  "a-br-1": { name: "ગોલ્ડ બ્રૂચ સેટ", description: "શેરવાની અને ફોર્મલ વસ્ત્રોને શોભાવવા માટે પ્રીમિયમ ગોલ્ડ ફિનિશ બ્રૂચ સેટ." },
+  "a-pa-1": { name: "રાજસ્થાની પાઘડી", description: "પરંપરાગત પ્રિન્ટમાં રંગબેરંગી રાજસ્થાની પાઘડી, લોક અને સાંસ્કૃતિક કાર્યક્રમો માટે પરફેક્ટ." },
+};
+
+export const reviewsGu: Record<string, { name: string; date: string; text: string }> = {
+  g1: { name: "ગૌરંગ બગડા", date: "8 મહિના પહેલાં", text: "સરસ કલેક્શન. સારું વર્તન. ચોક્કસ મુલાકાત લેવા જેવી." },
+};

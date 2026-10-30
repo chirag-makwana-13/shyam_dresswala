@@ -18,6 +18,23 @@
   --font-poppins: var(--font-poppins-sans), "Arial", sans-serif;
 }
 
+/* Gujarati: swap both brand fonts for one that has Gujarati glyphs */
+html[lang="gu"] {
+  --font-playfair: var(--font-noto-gujarati), "Noto Sans Gujarati", sans-serif;
+  --font-poppins: var(--font-noto-gujarati), "Noto Sans Gujarati", sans-serif;
+}
+
+html[lang="gu"] body {
+  line-height: 1.7;
+}
+
+/* Wide tracking and forced capitals break Gujarati conjunct letters */
+html[lang="gu"] [class*="tracking-"],
+html[lang="gu"] [class*="uppercase"] {
+  letter-spacing: normal;
+  text-transform: none;
+}
+
 * {
   box-sizing: border-box;
 }

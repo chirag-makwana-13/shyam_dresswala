@@ -4,8 +4,11 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight, MessageCircle } from "lucide-react";
 import { getWhatsAppUrl } from "@/lib/whatsapp";
+import { useLang } from "@/i18n/LanguageProvider";
+import { business } from "@/data/business";
 
 export default function HeroBanner() {
+  const { t, lang } = useLang();
   return (
     <section
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
@@ -54,7 +57,7 @@ export default function HeroBanner() {
           className="text-[11px] sm:text-xs font-semibold tracking-[0.15em] sm:tracking-[0.3em] uppercase mb-5 sm:mb-6"
           style={{ color: "#d4af37" }}
         >
-          <span className="hidden sm:inline">✦ </span>Since 2019 · Jamnagar, Gujarat<span className="hidden sm:inline"> ✦</span>
+          <span className="hidden sm:inline">✦ </span>{t.brand.since} {business.established} · {t.brand.location}<span className="hidden sm:inline"> ✦</span>
         </motion.p>
 
         {/* Main heading */}
@@ -65,10 +68,10 @@ export default function HeroBanner() {
           className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6"
           style={{ fontFamily: "var(--font-playfair)", color: "#fff8f0" }}
         >
-          Premium Rental{" "}
-          <span style={{ color: "#d4af37" }}>Fashion</span>
+          {t.hero.title1}{" "}
+          <span style={{ color: "#d4af37" }}>{t.hero.titleAccent}</span>
           <br />
-          For Every Occasion
+          {t.hero.title2}
         </motion.h1>
 
         {/* Divider */}
@@ -92,8 +95,7 @@ export default function HeroBanner() {
           className="text-base sm:text-lg md:text-xl mb-10 max-w-2xl mx-auto leading-relaxed"
           style={{ color: "rgba(255,248,240,0.75)" }}
         >
-          Explore our exquisite collection of Sherwani, Lehenga, Chaniya Choli,
-          Gown & more — crafted for your most memorable moments.
+          {t.hero.subtitle}
         </motion.p>
 
         {/* CTA Buttons */}
@@ -110,12 +112,12 @@ export default function HeroBanner() {
               className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-base cursor-pointer"
               style={{ backgroundColor: "#d4af37", color: "#3d0920" }}
             >
-              Browse Collection
+              {t.hero.browse}
               <ArrowRight size={18} />
             </motion.span>
           </Link>
 
-          <a href={getWhatsAppUrl()} target="_blank" rel="noopener noreferrer">
+          <a href={getWhatsAppUrl(undefined, undefined, undefined, lang)} target="_blank" rel="noopener noreferrer">
             <motion.span
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.97 }}
@@ -123,7 +125,7 @@ export default function HeroBanner() {
               style={{ borderColor: "rgba(255,248,240,0.5)", color: "#fff8f0" }}
             >
               <MessageCircle size={18} />
-              Contact Us
+              {t.hero.contactUs}
             </motion.span>
           </a>
         </motion.div>
@@ -136,10 +138,10 @@ export default function HeroBanner() {
           className="mt-12 sm:mt-16 grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-2xl mx-auto"
         >
           {[
-            { value: "7+", label: "Years Experience" },
-            { value: "500+", label: "Outfits Available" },
-            { value: "10K+", label: "Happy Customers" },
-            { value: "98%", label: "Satisfaction Rate" },
+            { value: "7+", label: t.hero.stats.years },
+            { value: "500+", label: t.hero.stats.outfits },
+            { value: "10K+", label: t.hero.stats.customers },
+            { value: "98%", label: t.hero.stats.satisfaction },
           ].map((stat) => (
             <div key={stat.label} className="text-center">
               <p

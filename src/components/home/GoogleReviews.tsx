@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Star, ExternalLink } from "lucide-react";
 import SectionTitle from "@/components/shared/SectionTitle";
 import { reviews, overallRating } from "@/data/reviews";
+import { useLang } from "@/i18n/LanguageProvider";
 
 function StarRating({ rating }: { rating: number }) {
   return (
@@ -21,13 +22,14 @@ function StarRating({ rating }: { rating: number }) {
 }
 
 export default function GoogleReviews() {
+  const { t, review: localizeReview } = useLang();
   return (
     <section className="py-20 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: "#fff8f0" }}>
       <div className="max-w-7xl mx-auto">
         <SectionTitle
-          label="Google Reviews"
-          title="What Our Customers Say"
-          subtitle="Over 248 happy customers have shared their experience with Shyam Dresswala."
+          label={t.reviews.label}
+          title={t.reviews.title}
+          subtitle={t.reviews.subtitle.replace("{total}", String(overallRating.total))}
         />
 
         {/* Overall rating */}
@@ -54,7 +56,7 @@ export default function GoogleReviews() {
               ))}
             </div>
             <p className="text-sm mt-2" style={{ color: "rgba(255,248,240,0.7)" }}>
-              out of 5
+              {t.reviews.outOf}
             </p>
           </div>
 
@@ -71,7 +73,7 @@ export default function GoogleReviews() {
               {overallRating.total}+
             </p>
             <p className="text-sm mt-1" style={{ color: "rgba(255,248,240,0.7)" }}>
-              Google Reviews
+              {t.reviews.googleReviews}
             </p>
           </div>
 
@@ -88,20 +90,20 @@ export default function GoogleReviews() {
             style={{ backgroundColor: "#d4af37", color: "#3d0920" }}
           >
             <ExternalLink size={16} />
-            View on Google
+            {t.reviews.viewOnGoogle}
           </a>
         </motion.div>
 
         {/* Review cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {reviews.map((review, i) => (
+        <div className="flex flex-wrap justify-center gap-6">
+          {reviews.map(localizeReview).map((review, i) => (
             <motion.div
               key={review.id}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="p-6 rounded-2xl border bg-white"
+              className="p-6 rounded-2xl border bg-white w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]"
               style={{ borderColor: "rgba(212,175,55,0.2)" }}
             >
               <div className="flex items-start gap-4 mb-4">

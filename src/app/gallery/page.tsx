@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import { useLang } from "@/i18n/LanguageProvider";
 
 const categories = [
   "All",
@@ -39,6 +40,7 @@ const galleryItems = [
 ];
 
 export default function GalleryPage() {
+  const { t, tr } = useLang();
   const [activeCategory, setActiveCategory] = useState("All");
   const [selectedImage, setSelectedImage] = useState<(typeof galleryItems)[0] | null>(null);
 
@@ -61,7 +63,7 @@ export default function GalleryPage() {
             className="text-xs tracking-[0.25em] uppercase font-semibold mb-3"
             style={{ color: "#d4af37" }}
           >
-            Our Work
+            {t.gallery.label}
           </motion.p>
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
@@ -70,7 +72,7 @@ export default function GalleryPage() {
             className="text-4xl md:text-5xl font-bold"
             style={{ fontFamily: "var(--font-playfair)", color: "#fff8f0" }}
           >
-            Gallery
+            {t.gallery.title}
           </motion.h1>
           <motion.p
             initial={{ opacity: 0 }}
@@ -79,7 +81,7 @@ export default function GalleryPage() {
             className="text-base mt-4 max-w-xl mx-auto"
             style={{ color: "rgba(255,248,240,0.65)" }}
           >
-            Real customers, real moments — see how our outfits make every occasion magical.
+            {t.gallery.subtitle}
           </motion.p>
         </div>
       </div>
@@ -100,7 +102,7 @@ export default function GalleryPage() {
                   : { backgroundColor: "white", color: "#5b0e2d", border: "1px solid rgba(91,14,45,0.2)" }
               }
             >
-              {cat}
+              {cat === "All" ? t.common.all : tr("galleryCats", cat)}
             </motion.button>
           ))}
         </div>
@@ -122,7 +124,7 @@ export default function GalleryPage() {
                 <div className="relative overflow-hidden rounded-xl">
                   <Image
                     src={item.src}
-                    alt={item.title}
+                    alt={tr("galleryTitles", item.title)}
                     width={600}
                     height={750}
                     className="w-full h-auto transition-transform duration-500 group-hover:scale-110"
@@ -130,7 +132,7 @@ export default function GalleryPage() {
                   />
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4"
                     style={{ background: "linear-gradient(to top, rgba(61,9,32,0.8), transparent)" }}>
-                    <p className="text-white text-sm font-medium">{item.title}</p>
+                    <p className="text-white text-sm font-medium">{tr("galleryTitles", item.title)}</p>
                   </div>
                 </div>
               </motion.div>
@@ -159,7 +161,7 @@ export default function GalleryPage() {
             >
               <Image
                 src={selectedImage.src}
-                alt={selectedImage.title}
+                alt={tr("galleryTitles", selectedImage.title)}
                 width={600}
                 height={750}
                 className="w-full h-auto"
@@ -172,10 +174,10 @@ export default function GalleryPage() {
                   className="text-xl font-bold"
                   style={{ fontFamily: "var(--font-playfair)", color: "#fff8f0" }}
                 >
-                  {selectedImage.title}
+                  {tr("galleryTitles", selectedImage.title)}
                 </p>
                 <p className="text-sm" style={{ color: "#d4af37" }}>
-                  {selectedImage.category}
+                  {tr("galleryCats", selectedImage.category)}
                 </p>
               </div>
               <button

@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Poppins } from "next/font/google";
+import { Playfair_Display, Poppins, Noto_Sans_Gujarati } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import FloatingWhatsApp from "@/components/layout/FloatingWhatsApp";
+import { LanguageProvider } from "@/i18n/LanguageProvider";
 
 const playfairDisplay = Playfair_Display({
   variable: "--font-playfair-display",
@@ -16,6 +17,13 @@ const poppinsSans = Poppins({
   variable: "--font-poppins-sans",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
+});
+
+const notoGujarati = Noto_Sans_Gujarati({
+  variable: "--font-noto-gujarati",
+  subsets: ["gujarati"],
+  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
@@ -55,16 +63,18 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${playfairDisplay.variable} ${poppinsSans.variable}`}
+      className={`${playfairDisplay.variable} ${poppinsSans.variable} ${notoGujarati.variable}`}
     >
       <body
         style={{ fontFamily: "var(--font-poppins)" }}
         className="bg-cream text-charcoal antialiased"
       >
-        <Header />
-        <main className="min-h-screen">{children}</main>
-        <Footer />
-        <FloatingWhatsApp />
+        <LanguageProvider>
+          <Header />
+          <main className="min-h-screen">{children}</main>
+          <Footer />
+          <FloatingWhatsApp />
+        </LanguageProvider>
       </body>
     </html>
   );

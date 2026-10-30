@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import SectionTitle from "@/components/shared/SectionTitle";
+import { useLang } from "@/i18n/LanguageProvider";
 
 const menCategories = [
   { label: "Sherwani", href: "/men?cat=Sherwani", emoji: "🥻" },
@@ -31,21 +32,21 @@ const accessoryCategories = [
 
 const sections = [
   {
-    title: "Men's Collection",
+    key: "men" as const,
     href: "/men",
     categories: menCategories,
     color: "#5b0e2d",
     bg: "rgba(91,14,45,0.06)",
   },
   {
-    title: "Women's Collection",
+    key: "women" as const,
     href: "/women",
     categories: womenCategories,
     color: "#8b1a4a",
     bg: "rgba(139,26,74,0.06)",
   },
   {
-    title: "Accessories",
+    key: "accessories" as const,
     href: "/accessories",
     categories: accessoryCategories,
     color: "#a88b2a",
@@ -54,19 +55,20 @@ const sections = [
 ];
 
 export default function Categories() {
+  const { t, tr } = useLang();
   return (
     <section className="py-20 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: "#fff8f0" }}>
       <div className="max-w-7xl mx-auto">
         <SectionTitle
-          label="Explore"
-          title="Our Collections"
-          subtitle="From traditional ethnic wear to modern fashion — find the perfect outfit for every occasion."
+          label={t.categories.label}
+          title={t.categories.title}
+          subtitle={t.categories.subtitle}
         />
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-4">
           {sections.map((section, si) => (
             <motion.div
-              key={section.title}
+              key={section.key}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
@@ -83,14 +85,14 @@ export default function Categories() {
                   className="text-xl font-bold"
                   style={{ fontFamily: "var(--font-playfair)", color: "#fff8f0" }}
                 >
-                  {section.title}
+                  {t.categories[section.key]}
                 </h3>
                 <Link
                   href={section.href}
                   className="text-xs font-semibold px-3 py-1.5 rounded-full transition-all hover:opacity-80"
                   style={{ backgroundColor: "#d4af37", color: "#3d0920" }}
                 >
-                  View All
+                  {t.common.viewAll}
                 </Link>
               </div>
 
@@ -115,7 +117,7 @@ export default function Categories() {
                         className="text-sm font-medium leading-tight"
                         style={{ color: section.color }}
                       >
-                        {cat.label}
+                        {tr("sub", cat.label)}
                       </span>
                     </Link>
                   </motion.div>
