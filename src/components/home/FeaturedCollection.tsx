@@ -20,7 +20,7 @@ export default function FeaturedCollection() {
           subtitle="Hand-picked premium outfits loved by our customers for weddings, receptions, and celebrations."
         />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-6">
           {featuredProducts.map((product, i) => (
             <ProductCard key={product.id} product={product} index={i} />
           ))}

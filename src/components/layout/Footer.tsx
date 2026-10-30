@@ -193,7 +193,7 @@ export default function Footer() {
               <li className="flex gap-3">
                 <Phone size={16} className="shrink-0" style={{ color: "#d4af37" }} />
                 <a
-                  href={`tel:${business.phoneRaw}`}
+                  href={`tel:+${business.phoneRaw}`}
                   className="text-sm hover:opacity-80"
                   style={{ color: "rgba(255,248,240,0.7)" }}
                 >

@@ -24,14 +24,14 @@ export default function WomenContent() {
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="flex flex-wrap gap-2 mb-10 justify-center">
+      <div className="flex gap-2 mb-8 sm:mb-10 sm:justify-center overflow-x-auto sm:flex-wrap -mx-4 px-4 sm:mx-0 sm:px-0 pb-2">
         {tabs.map((tab) => (
           <motion.button
             key={tab}
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.97 }}
             onClick={() => setActiveCategory(tab)}
-            className="px-5 py-2.5 rounded-full text-sm font-semibold transition-all"
+            className="px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-sm font-semibold transition-all whitespace-nowrap shrink-0"
             style={
               activeCategory === tab
                 ? { backgroundColor: "#8b1a4a", color: "#d4af37" }
@@ -44,7 +44,7 @@ export default function WomenContent() {
       </div>
 
       {filtered.length > 0 ? (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-6">
           {filtered.map((product, i) => (
             <ProductCard key={product.id} product={product} index={i} />
           ))}

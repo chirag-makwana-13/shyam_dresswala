@@ -25,9 +25,9 @@ export const metadata: Metadata = {
     template: "%s | Shyam Dresswala",
   },
   description:
-    "Shyam Dresswala offers premium rental clothing for weddings, receptions, and traditional events. Explore Sherwani, Lehenga, Chaniya Choli, Gown & more in Ahmedabad.",
+    "Shyam Dresswala offers premium rental clothing for weddings, receptions, and traditional events. Explore Sherwani, Lehenga, Chaniya Choli, Gown & more in Jamnagar.",
   keywords: [
-    "wedding dress rental Ahmedabad",
+    "wedding dress rental Jamnagar",
     "sherwani rental",
     "lehenga rental",
     "chaniya choli rental",
@@ -40,11 +40,11 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_IN",
-    url: "https://shyamdresswala.com",
+    url: "https://shyam-dresswala.vercel.app",
     siteName: "Shyam Dresswala",
     title: "Shyam Dresswala | Premium Rental Fashion For Every Occasion",
     description:
-      "Premium rental clothing for weddings and traditional events in Ahmedabad.",
+      "Premium rental clothing for weddings and traditional events in Jamnagar.",
   },
   robots: { index: true, follow: true },
 };

@@ -29,7 +29,7 @@ export const reviews: Review[] = [
     name: "Amit Desai",
     rating: 5,
     date: "January 2024",
-    text: "Best rental shop in Ahmedabad! The collection is huge and the staff is very helpful. Got a Jodhpuri suit for a corporate event and received so many compliments. Great service!",
+    text: "Best rental shop in Jamnagar! The collection is huge and the staff is very helpful. Got a Jodhpuri suit for a corporate event and received so many compliments. Great service!",
     avatar: "AD",
   },
   {

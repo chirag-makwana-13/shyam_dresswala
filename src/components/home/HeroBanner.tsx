@@ -45,16 +45,16 @@ export default function HeroBanner() {
       />
 
       {/* Content */}
-      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 pt-28 pb-32 md:pt-32 md:pb-36 text-center">
         {/* Label */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-xs font-semibold tracking-[0.3em] uppercase mb-6"
+          className="text-[11px] sm:text-xs font-semibold tracking-[0.15em] sm:tracking-[0.3em] uppercase mb-5 sm:mb-6"
           style={{ color: "#d4af37" }}
         >
-          ✦ Since 2005 · Ahmedabad, Gujarat ✦
+          <span className="hidden sm:inline">✦ </span>Since 2019 · Jamnagar, Gujarat<span className="hidden sm:inline"> ✦</span>
         </motion.p>
 
         {/* Main heading */}
@@ -133,10 +133,10 @@ export default function HeroBanner() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 1.3 }}
-          className="mt-16 grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-2xl mx-auto"
+          className="mt-12 sm:mt-16 grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-2xl mx-auto"
         >
           {[
-            { value: "20+", label: "Years Experience" },
+            { value: "7+", label: "Years Experience" },
             { value: "500+", label: "Outfits Available" },
             { value: "10K+", label: "Happy Customers" },
             { value: "98%", label: "Satisfaction Rate" },

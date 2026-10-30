@@ -15,27 +15,27 @@ const categories = [
 
 const galleryItems = [
   // Groom Collection
-  { id: 1, category: "Groom Collection", seed: "groom-1", w: 600, h: 800, title: "Royal Sherwani Groom" },
-  { id: 2, category: "Groom Collection", seed: "groom-2", w: 600, h: 750, title: "Ivory Jodhpuri Groom" },
-  { id: 3, category: "Groom Collection", seed: "groom-3", w: 600, h: 900, title: "Navy Suit Groom" },
-  { id: 4, category: "Groom Collection", seed: "groom-4", w: 600, h: 700, title: "Classic Sherwani" },
+  { id: 1, category: "Groom Collection", src: "/products/m-sh-1.png", title: "Royal Sherwani Groom" },
+  { id: 2, category: "Groom Collection", src: "/products/m-jo-1.png", title: "Ivory Jodhpuri Groom" },
+  { id: 3, category: "Groom Collection", src: "/products/m-su-1.png", title: "Navy Suit Groom" },
+  { id: 4, category: "Groom Collection", src: "/products/m-sh-2.png", title: "Classic Sherwani" },
   // Bride Collection
-  { id: 5, category: "Bride Collection", seed: "bride-1", w: 600, h: 850, title: "Bridal Lehenga" },
-  { id: 6, category: "Bride Collection", seed: "bride-2", w: 600, h: 750, title: "Red Chaniya Choli" },
-  { id: 7, category: "Bride Collection", seed: "bride-3", w: 600, h: 900, title: "Royal Blue Gown" },
+  { id: 5, category: "Bride Collection", src: "/products/w-le-1.png", title: "Bridal Lehenga" },
+  { id: 6, category: "Bride Collection", src: "/products/w-cc-1.png", title: "Red Chaniya Choli" },
+  { id: 7, category: "Bride Collection", src: "/products/w-go-1.png", title: "Royal Blue Gown" },
   // Couple Collection
-  { id: 8, category: "Couple Collection", seed: "couple-1", w: 800, h: 600, title: "Wedding Couple" },
-  { id: 9, category: "Couple Collection", seed: "couple-2", w: 600, h: 750, title: "Reception Couple" },
-  { id: 10, category: "Couple Collection", seed: "couple-3", w: 600, h: 800, title: "Traditional Couple" },
+  { id: 8, category: "Couple Collection", src: "/products/w-le-1.png", title: "Wedding Couple" },
+  { id: 9, category: "Couple Collection", src: "/products/m-su-3.png", title: "Reception Couple" },
+  { id: 10, category: "Couple Collection", src: "/products/w-sa-1.png", title: "Traditional Couple" },
   // Family Collection
-  { id: 11, category: "Family Collection", seed: "family-1", w: 800, h: 600, title: "Wedding Family" },
-  { id: 12, category: "Family Collection", seed: "family-2", w: 600, h: 750, title: "Festive Family" },
-  { id: 13, category: "Family Collection", seed: "family-3", w: 600, h: 800, title: "Family Celebration" },
+  { id: 11, category: "Family Collection", src: "/products/m-sh-3.png", title: "Wedding Family" },
+  { id: 12, category: "Family Collection", src: "/products/w-le-2.png", title: "Festive Family" },
+  { id: 13, category: "Family Collection", src: "/products/m-ko-1.png", title: "Family Celebration" },
   // Traditional Collection
-  { id: 14, category: "Traditional Collection", seed: "trad-1", w: 600, h: 800, title: "Navratri Chaniya" },
-  { id: 15, category: "Traditional Collection", seed: "trad-2", w: 600, h: 750, title: "Garba Night" },
-  { id: 16, category: "Traditional Collection", seed: "trad-3", w: 600, h: 900, title: "Diwali Kurta" },
-  { id: 17, category: "Traditional Collection", seed: "trad-4", w: 600, h: 800, title: "Traditional Saree" },
+  { id: 14, category: "Traditional Collection", src: "/products/w-cc-2.png", title: "Navratri Chaniya" },
+  { id: 15, category: "Traditional Collection", src: "/products/w-cc-3.png", title: "Garba Night" },
+  { id: 16, category: "Traditional Collection", src: "/products/m-kp-3.png", title: "Diwali Kurta" },
+  { id: 17, category: "Traditional Collection", src: "/products/w-sa-2.png", title: "Traditional Saree" },
 ];
 
 export default function GalleryPage() {
@@ -86,14 +86,14 @@ export default function GalleryPage() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Filter tabs */}
-        <div className="flex flex-wrap gap-2 mb-10 justify-center">
+        <div className="flex gap-2 mb-8 sm:mb-10 sm:justify-center overflow-x-auto sm:flex-wrap -mx-4 px-4 sm:mx-0 sm:px-0 pb-2">
           {categories.map((cat) => (
             <motion.button
               key={cat}
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.97 }}
               onClick={() => setActiveCategory(cat)}
-              className="px-4 py-2 rounded-full text-sm font-semibold transition-all"
+              className="px-4 py-2 rounded-full text-sm font-semibold transition-all whitespace-nowrap shrink-0"
               style={
                 activeCategory === cat
                   ? { backgroundColor: "#5b0e2d", color: "#d4af37" }
@@ -106,7 +106,7 @@ export default function GalleryPage() {
         </div>
 
         {/* Masonry grid */}
-        <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-4">
+        <div className="columns-2 lg:columns-3 xl:columns-4 gap-3 sm:gap-4">
           <AnimatePresence>
             {filtered.map((item, i) => (
               <motion.div
@@ -116,15 +116,15 @@ export default function GalleryPage() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.3, delay: i * 0.05 }}
-                className="break-inside-avoid mb-4 rounded-xl overflow-hidden cursor-pointer group relative"
+                className="break-inside-avoid mb-3 sm:mb-4 rounded-xl overflow-hidden cursor-pointer group relative"
                 onClick={() => setSelectedImage(item)}
               >
                 <div className="relative overflow-hidden rounded-xl">
                   <Image
-                    src={`https://picsum.photos/seed/${item.seed}/${item.w}/${item.h}`}
+                    src={item.src}
                     alt={item.title}
-                    width={item.w}
-                    height={item.h}
+                    width={600}
+                    height={750}
                     className="w-full h-auto transition-transform duration-500 group-hover:scale-110"
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                   />
@@ -155,13 +155,13 @@ export default function GalleryPage() {
               animate={{ scale: 1 }}
               exit={{ scale: 0.8 }}
               onClick={(e) => e.stopPropagation()}
-              className="relative max-w-3xl w-full rounded-2xl overflow-hidden"
+              className="relative max-w-md max-h-[90vh] w-full rounded-2xl overflow-hidden"
             >
               <Image
-                src={`https://picsum.photos/seed/${selectedImage.seed}/${selectedImage.w}/${selectedImage.h}`}
+                src={selectedImage.src}
                 alt={selectedImage.title}
-                width={selectedImage.w}
-                height={selectedImage.h}
+                width={600}
+                height={750}
                 className="w-full h-auto"
               />
               <div

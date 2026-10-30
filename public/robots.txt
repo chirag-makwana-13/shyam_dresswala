@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://shyamdresswala.com/sitemap.xml
+Sitemap: https://shyam-dresswala.vercel.app/sitemap.xml

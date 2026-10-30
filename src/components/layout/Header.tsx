@@ -79,6 +79,7 @@ export default function Header() {
             <nav className="hidden lg:flex items-center gap-1">
               {navLinks.map((link) => {
                 const active = pathname === link.href;
+                const onLight = scrolled || !isHome;
                 return (
                   <Link
                     key={link.href}
@@ -86,17 +87,23 @@ export default function Header() {
                     className="relative px-3 py-2 text-sm font-medium rounded-lg transition-colors duration-200"
                     style={{
                       color: active
-                        ? "#5b0e2d"
-                        : scrolled || !isHome
+                        ? onLight
+                          ? "#5b0e2d"
+                          : "#d4af37"
+                        : onLight
                         ? "#333"
                         : "rgba(255,248,240,0.9)",
+                      fontWeight: active ? 600 : 500,
                     }}
                   >
                     {active && (
                       <motion.span
                         layoutId="nav-active"
                         className="absolute inset-0 rounded-lg"
-                        style={{ backgroundColor: "rgba(212,175,55,0.15)" }}
+                        style={{
+                          backgroundColor: onLight ? "rgba(212,175,55,0.22)" : "rgba(212,175,55,0.18)",
+                          boxShadow: "inset 0 0 0 1px rgba(212,175,55,0.45)",
+                        }}
                         transition={{ type: "spring", bounce: 0.2, duration: 0.4 }}
                       />
                     )}

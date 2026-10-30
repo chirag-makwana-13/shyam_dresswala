@@ -55,7 +55,7 @@ export default function AboutClient() {
             className="text-lg leading-relaxed max-w-2xl mx-auto"
             style={{ color: "rgba(255,248,240,0.7)" }}
           >
-            For over two decades, we have been Ahmedabad&apos;s most trusted destination
+            Since 2019, we have been Jamnagar&apos;s most trusted destination
             for premium rental fashion — helping thousands of families look their
             absolute best for life&apos;s most special moments.
           </motion.p>
@@ -119,7 +119,7 @@ export default function AboutClient() {
             </h2>
             <div className="space-y-4 text-base leading-relaxed" style={{ color: "#444" }}>
               <p>
-                Shyam Dresswala was founded in 2005 with a simple vision: to make
+                Shyam Dresswala was founded in 2019 with a simple vision: to make
                 premium ethnic and wedding fashion accessible to everyone. We believed
                 that every person deserves to look and feel extraordinary on their most
                 memorable occasions — without the burden of buying expensive outfits they
@@ -127,7 +127,7 @@ export default function AboutClient() {
               </p>
               <p>
                 Starting with a small collection of men&apos;s sherwanis in our flagship
-                store in Ahmedabad, we have grown to offer over 500+ outfits spanning
+                store in Jamnagar, we have grown to offer over 500+ outfits spanning
                 men&apos;s ethnic wear, women&apos;s bridal and festive collections, and
                 a comprehensive accessories range.
               </p>
@@ -135,7 +135,7 @@ export default function AboutClient() {
                 Today, Shyam Dresswala is a name trusted by thousands of families across
                 Gujarat for weddings, receptions, festivals, corporate events, and every
                 celebration in between. Our commitment to quality, care, and customer
-                satisfaction has remained unchanged for 20+ years.
+                satisfaction has remained unchanged for 7+ years.
               </p>
             </div>
           </motion.div>
